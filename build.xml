@@ -9,7 +9,7 @@
         <delete dir="${basedir}/build/logs" />
     </target>
 
-    <target name="TEST" depends="Lint,PHPUnit" description="Run tests" />
+    <target name="TEST" depends="prepare,Lint,PHPUnit" description="Run tests" />
 
     <target name="Lint" description="Lint check (syntax error check)">
         <apply executable="php" failonerror="true">
@@ -25,11 +25,21 @@
         </apply>
     </target>
 
-    <target name="PHPUnit" depends="prepare" description="Run PHPUnit unit tests">
+    <target name="PHPUnit" description="Run PHPUnit unit tests">
         <exec executable="phpunit" failonerror="true" />
     </target>
 
-    <target name="REPORT" />
+    <target name="REPORT" depends="prepare,phpcs" />
+
+    <target name="phpcs">
+        <exec executable="phpcs">
+            <arg value="--report=checkstyle" />
+            <arg value="--report-file=${basedir}/build/logs/checkstyle.xml" />
+            <arg value="--standard=PEAR" />
+            <arg path="${basedir}/src" />
+        </exec>
+    </target>
+
     <target name="PACKAGE" />
     <target name="DEPLOY" />
 </project>
