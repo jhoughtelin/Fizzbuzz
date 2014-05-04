@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<project name="FizzBuzz" default="TEST">
+<project name="FizzBuzz">
+
+    <target name="prepare" depends="clean">
+        <mkdir dir="${basedir}/build/logs" />
+    </target>
+
+    <target name="clean" depends="">
+        <delete dir="${basedir}/build/logs" />
+    </target>
+
     <target name="TEST" depends="Lint,PHPUnit" description="Run tests" />
 
     <target name="Lint" description="Lint check (syntax error check)">
@@ -16,7 +25,7 @@
         </apply>
     </target>
 
-    <target name="PHPUnit" description="Run PHPUnit unit tests">
+    <target name="PHPUnit" depends="prepare" description="Run PHPUnit unit tests">
         <exec executable="phpunit" failonerror="true" />
     </target>
 
