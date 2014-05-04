@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="FizzBuzz" default="TEST">
+    <target name="TEST" depends="Lint,PHPUnit" description="Run tests" />
+
+    <target name="Lint" description="Lint check (syntax error check)">
+        <apply executable="php" failonerror="true">
+            <arg value="-l" />
+
+            <fileset dir="${basedir}/src">
+                <include name="**/*.php" />
+            </fileset>
+
+            <fileset dir="${basedir}/tests">
+                <incude name="**/*.php" />
+            </fileset>
+        </apply>
+    </target>
+
+    <target name="PHPUnit" description="Run PHPUnit unit tests">
+        <exec executable="phpunit" failonerror="true" />
+    </target>
+
+    <target name="REPORT" />
+    <target name="PACKAGE" />
+    <target name="DEPLOY" />
+</project>
