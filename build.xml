@@ -29,7 +29,7 @@
         <exec executable="phpunit" failonerror="true" />
     </target>
 
-    <target name="REPORT" depends="TEST,phpcs" />
+    <target name="REPORT" depends="TEST,phpcs,pdepend,phpmd" />
 
     <target name="phpcs">
         <exec executable="phpcs">
