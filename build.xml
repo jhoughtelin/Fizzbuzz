@@ -11,7 +11,7 @@
             </fileset>
 
             <fileset dir="${basedir}/tests">
-                <incude name="**/*.php" />
+                <include name="**/*.php" />
             </fileset>
         </apply>
     </target>
