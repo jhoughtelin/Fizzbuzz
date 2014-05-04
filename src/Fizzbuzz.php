@@ -26,29 +26,34 @@
  * @version   Release: @package_version@
  * @since     2014/05/03
  */
-class Fizzbuzz {
+class Fizzbuzz
+{
 
     private $_start = 1;
     private $_end = 100;
     protected $results = array();
 
-    public function __construct ($start = 1, $end = 100 ) {
+    public function __construct ($start = 1, $end = 100 )
+    {
         $this->setStart($start);
         $this->setEnd($end);
     }
 
-    public function setEnd ($end) {
+    public function setEnd ($end)
+    {
         $this->_end = $end;
     }
 
-    public function setStart ($start) {
+    public function setStart ($start)
+    {
         $this->_start = $start;
     }
 
     public function run() {
         $counter = $this->_start;
 
-        while($counter <= $this->_end) {
+        while($counter <= $this->_end)
+        {
             $this->results[$counter] = $this->izFizzBuzz($counter);
             $counter++;
         }
