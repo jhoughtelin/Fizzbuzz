@@ -3,10 +3,12 @@
 
     <target name="prepare" depends="clean">
         <mkdir dir="${basedir}/build/logs" />
+        <mkdir dir="${basedir}/build/pdepend" />
     </target>
 
     <target name="clean" depends="">
         <delete dir="${basedir}/build/logs" />
+        <delete dir="${basedir}/build/pdepend" />
     </target>
 
     <target name="TEST" depends="prepare,Lint,PHPUnit" description="Run tests" />
