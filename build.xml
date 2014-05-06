@@ -11,6 +11,10 @@
         <delete dir="${basedir}/build/pdepend" />
     </target>
 
+
+    <!--                                -->
+    <!--              TEST              -->
+    <!--                                -->
     <target name="TEST" depends="prepare,Lint,PHPUnit" description="Run tests" />
 
     <target name="Lint" description="Lint check (syntax error check)">
@@ -31,13 +35,26 @@
         <exec executable="phpunit" failonerror="true" />
     </target>
 
-    <target name="REPORT" depends="TEST,phpcs,pdepend,phpmd" />
+
+    <!--                                -->
+    <!--            REPORTS             -->
+    <!--                                -->
+    <target name="REPORT" depends="TEST,phploc,phpcs,pdepend,phpmd,phpcpd,phpdox" />
+
+    <target name="phploc" description="Measure project size using PHPLOC">
+        <exec executable="phploc">
+            <arg value="--count-tests" />
+            <arg value="--log-csv" />
+            <arg value="${basedir}/build/logs/phploc.csv" />
+            <arg path="${basedir}/src" />
+        </exec>
+    </target>
 
     <target name="phpcs">
         <exec executable="phpcs">
             <arg value="--report=checkstyle" />
             <arg value="--report-file=${basedir}/build/logs/checkstyle.xml" />
-            <arg value="--standard=PEAR" />
+            <arg value="--standard=${basedir}/build/phpcs_ruleset.xml" />
             <arg path="${basedir}/src" />
         </exec>
     </target>
@@ -55,12 +72,33 @@
         <exec executable="phpmd">
             <arg path="${basedir}/src" />
             <arg value="xml" />
-            <arg value="${basedir}/build/logs/phpmd.xml" />
+            <arg value="${basedir}/build/phpmd_ruleset.xml" />
             <arg value="--reportfile" />
             <arg value="${basedir}/build/logs/pmd.xml" />
         </exec>
     </target>
 
+    <target name="phpcpd" description="Find duplicate code using PHPCPD">
+        <exec executable="phpcpd">
+            <arg value="--log-pmd" />
+            <arg value="${basedir}/build/logs/pmd-cpd.xml" />
+            <arg path="${basedir}/src" />
+        </exec>
+    </target>
+
+    <target name="phpdox" description="Generate API documentation using phpDox">
+        <exec executable="phpdox"/>
+    </target>
+
+
+    <!--                                -->
+    <!--            PACKAGE             -->
+    <!--                                -->
     <target name="PACKAGE" />
+
+
+    <!--                                -->
+    <!--            DEPLOY              -->
+    <!--                                -->
     <target name="DEPLOY" />
 </project>

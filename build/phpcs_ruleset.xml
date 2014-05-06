@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<ruleset name="Fizzbuzz Demo Coding Standard">
+    <description>Fizzbuzz DEMO coding standard</description>
+    <rule ref="PEAR"/>
+    <rule ref="Generic.CodeAnalysis.UnusedFunctionParameter"/>
+    <rule ref="Generic.Commenting.Todo"/>
+    <rule ref="Generic.ControlStructures.InlineControlStructure"/>
+    <rule ref="Generic.Commenting.Todo.CommentFound">
+        <message>Please review this TODO comment: %s</message>
+        <severity>3</severity>
+    </rule>
+</ruleset>
