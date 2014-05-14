@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <project name="FizzBuzz">
 
+    <!-- Global Build Properties        -->
+    <property name="source" location="src/"/>
+    <proeprty name="build" location="build/"/>
+
+
+    <!-- Prepare the Workspace          -->
     <target name="clean" description="Cleanup build artifacts">
         <delete dir="${basedir}/build/api"/>
         <delete dir="${basedir}/build/coverage"/>
@@ -16,10 +22,7 @@
         <mkdir dir="${basedir}/build/phpdox"/>
     </target>
 
-
-    <!--                                -->
     <!--              TEST              -->
-    <!--                                -->
     <target name="TEST" depends="prepare,Lint,PHPUnit" description="Run tests" />
 
     <target name="Lint" description="Lint check (syntax error check)">
@@ -40,10 +43,7 @@
         <exec executable="phpunit" failonerror="true" />
     </target>
 
-
-    <!--                                -->
     <!--            REPORTS             -->
-    <!--                                -->
     <target name="REPORT" depends="TEST,phploc,phpcs,pdepend,phpmd,phpcpd,phpdox" />
 
     <target name="phploc" description="Measure project size using PHPLOC">
@@ -96,14 +96,10 @@
     </target>
 
 
-    <!--                                -->
-    <!--            PACKAGE             -->
-    <!--                                -->
+    <!--          PACKAGE                      -->
     <target name="PACKAGE" />
 
 
-    <!--                                -->
-    <!--            DEPLOY              -->
-    <!--                                -->
+    <!--         DEPLOY                       -->
     <target name="DEPLOY" />
 </project>

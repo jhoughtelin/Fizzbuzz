@@ -6,25 +6,24 @@
  *
  * PHP version 5..5.
  *
- * LICENSE: This source file is subject to version 3.01 of the PHP license
- * that is available through the world-wide-web at the following URI:
- * http://www.php.net/license/3_01.txt.  If you did not receive a copy of
- * the PHP License and are unableå to obtain it through the web, please
- * send a note to license@php.net so we can mail you a copy immediately.
- *
- * @category  Fizzbuzz
- * @package   Fizzbuzz
- * @author    Josh Houghtelin <Josh@FindSomeHelp.com>
- * @since     2014/05/03
- * @link      http://gitphp.com
+ * @category Fizzbuzz
+ * @package  SimpleApp
+ * @author   Josh Houghtelin <Josh@FindSomeHelp.com>
+ * @license  MIT
+ * @link     http://gitphp.com
+ * @since    2014/05/03
  */
 
 /**
  * Class Fizzbuzz
  *
- * @author    Josh Houghtelin <Josh@FindSomeHelp.com>
- * @version   Release: @package_version@
- * @since     2014/05/03
+ * @author   Josh Houghtelin <Josh@FindSomeHelp.com>
+ * @package  Fizzbuzz
+ * @category SimpleApp
+ * @license  MIT
+ * @version  Release: @package_version@
+ * @link     http://gitphp.com
+ * @since    2014/05/03
  */
 class Fizzbuzz
 {
@@ -33,26 +32,47 @@ class Fizzbuzz
     private $_end = 100;
     protected $results = array();
 
+    /**
+     * Class Construct
+     *
+     * @param int $start
+     * @param int $end
+     */
     public function __construct ($start = 1, $end = 100 )
     {
         $this->setStart($start);
         $this->setEnd($end);
     }
 
+    /**
+     * setEnd
+     *
+     * @param $end
+     */
     public function setEnd ($end)
     {
         $this->_end = $end;
     }
 
+    /**
+     * setStart
+     *
+     * @param $start
+     */
     public function setStart ($start)
     {
         $this->_start = $start;
     }
 
+    /**
+     * Run the Fizzbuzz process
+     *
+     * @return array
+     */
     public function run() {
         $counter = $this->_start;
 
-        while($counter <= $this->_end)
+        while ($counter <= $this->_end)
         {
             $this->results[$counter] = $this->izFizzBuzz($counter);
             $counter++;
@@ -61,8 +81,15 @@ class Fizzbuzz
         return $this->results;
     }
 
+    /**
+     * Check if a value is to be returned as fizz/buzz/fizzbuzz or itself.
+     *
+     * @param $number
+     *
+     * @return string
+     */
     public function izFizzBuzz($number) {
-        if(($number%3 == 0) && ($number%5 == 0)){
+        if (($number%3 == 0) && ($number%5 == 0)){
             return "FizzBuzz";
         } elseif ($number%3 == 0) {
             return "Fizz";

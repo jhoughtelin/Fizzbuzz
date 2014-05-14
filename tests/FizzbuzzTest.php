@@ -12,13 +12,24 @@
  * the PHP License and are unableå to obtain it through the web, please
  * send a note to license@php.net so we can mail you a copy immediately.
  *
- * @category  Fizzbuzz
- * @package   Fizzbuzz
+ * @category  TEST
+ * @package   PHPUnit
  * @author    Josh Houghtelin <Josh@FindSomeHelp.com>
- * @since     2014/05/03
  * @link      http://gitphp.com
+ * @since     2014/05/03
  */
 
+/**
+ * Class FizzbuzzTest
+ *
+ * @author   Josh Houghtelin <Josh@FindSomeHelp.com>
+ * @package  PHPUnit
+ * @category TEST
+ * @license  MIT
+ * @version  Release: @package_version@
+ * @link     http://gitphp.com
+ * @since    2014/05/03
+ */
 class FizzbuzzTest extends PHPUnit_Framework_TestCase {
 
     public function testCanFizz() {
