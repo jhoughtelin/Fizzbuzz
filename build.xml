@@ -40,9 +40,7 @@
     </target>
 
     <target name="PHPUnit" description="Run PHPUnit unit tests">
-        <exec executable="phpunit" failonerror="true" >
-            <arg value="-c ${basedir}/tests/phpunit.xml" />
-        </exec>
+        <exec executable="phpunit" failonerror="true" />
     </target>
 
     <!--            REPORTS             -->
