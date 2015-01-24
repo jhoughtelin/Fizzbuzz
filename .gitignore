@@ -1,2 +1,9 @@
 .idea/
 .DS_Store
+
+# ANT Buildable files
+build/logs
+build/coverage
+build/pdepend
+build/api
+build/phpdox
