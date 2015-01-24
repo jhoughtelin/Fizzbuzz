@@ -93,7 +93,8 @@
 
     <target name="phpdox" description="Generate API documentation using phpDox">
         <exec executable="phpdox">
-            <arg value="-f build/phpdox.xml" />
+            <arg value="-f" />
+            <arg value="${basedir}/build/phpdox.xml" />
         </exec>
     </target>
 
