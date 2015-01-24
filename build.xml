@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<project name="FizzBuzz">
+<project name="FizzBuzz" default="TEST">
 
     <!-- Global Build Properties        -->
     <property name="source" location="src/"/>
-    <proeprty name="build" location="build/"/>
+    <property name="build" location="build/"/>
 
 
     <!-- Prepare the Workspace          -->
