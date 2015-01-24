@@ -40,7 +40,9 @@
     </target>
 
     <target name="PHPUnit" description="Run PHPUnit unit tests">
-        <exec executable="phpunit" failonerror="true" />
+        <exec executable="phpunit" failonerror="true" >
+            <arg value="-c tests/phpunit.xml" />
+        </exec>
     </target>
 
     <!--            REPORTS             -->
@@ -92,7 +94,9 @@
     </target>
 
     <target name="phpdox" description="Generate API documentation using phpDox">
-        <exec executable="phpdox"/>
+        <exec executable="phpdox">
+            <arg value="-f build/phpdox.xml" />
+        </exec>
     </target>
 
 
