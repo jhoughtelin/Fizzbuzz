@@ -30,27 +30,31 @@
  * @link     http://gitphp.com
  * @since    2014/05/03
  */
-class FizzbuzzTest extends PHPUnit_Framework_TestCase {
+class FizzbuzzTest extends PHPUnit_Framework_TestCase
+{
 
-    public function testCanFizz() {
+    public function testCanFizz()
+    {
         $a = new Fizzbuzz();
-        $this->assertEquals('Fizz',$a->izFizzBuzz(3));
+        $this->assertEquals('Fizz', $a->izFizzBuzz(3));
     }
 
-    public function testCanBuzz() {
+    public function testCanBuzz()
+    {
         $a = new Fizzbuzz();
-        $this->assertEquals('Buzz',$a->izFizzBuzz(5));
+        $this->assertEquals('Buzz', $a->izFizzBuzz(5));
     }
 
-    public function testCanFizzBuzz() {
+    public function testCanFizzBuzz()
+    {
         $a = new Fizzbuzz();
-        $this->assertEquals('FizzBuzz',$a->izFizzBuzz(15));
+        $this->assertEquals('FizzBuzz', $a->izFizzBuzz(15));
     }
 
-    public function testReturnsArray() {
+    public function testReturnsArray()
+    {
         $a = new Fizzbuzz();
 
         $this->assertTrue(is_array($a->run()));
     }
-
 }

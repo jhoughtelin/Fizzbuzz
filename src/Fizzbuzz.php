@@ -28,8 +28,8 @@
 class Fizzbuzz
 {
 
-    private $_start = 1;
-    private $_end = 100;
+    private $start = 1;
+    private $end = 100;
     protected $results = array();
 
     /**
@@ -38,7 +38,7 @@ class Fizzbuzz
      * @param int $start
      * @param int $end
      */
-    public function __construct ($start = 1, $end = 100 )
+    public function __construct($start = 1, $end = 100)
     {
         $this->setStart($start);
         $this->setEnd($end);
@@ -49,9 +49,9 @@ class Fizzbuzz
      *
      * @param $end
      */
-    public function setEnd ($end)
+    public function setEnd($end)
     {
-        $this->_end = $end;
+        $this->end = $end;
     }
 
     /**
@@ -59,9 +59,9 @@ class Fizzbuzz
      *
      * @param $start
      */
-    public function setStart ($start)
+    public function setStart($start)
     {
-        $this->_start = $start;
+        $this->start = $start;
     }
 
     /**
@@ -69,13 +69,13 @@ class Fizzbuzz
      *
      * @return array
      */
-    public function run() {
-        $counter = $this->_start;
+    public function run()
+    {
+        $counter = $this->start;
 
-        while ($counter <= $this->_end)
-        {
+        while ($counter <= $this->end) {
             $this->results[$counter] = $this->izFizzBuzz($counter);
-            $counter++;
+            $counter ++;
         }
 
         return $this->results;
@@ -88,12 +88,13 @@ class Fizzbuzz
      *
      * @return string
      */
-    public function izFizzBuzz($number) {
-        if (($number%3 == 0) && ($number%5 == 0)){
+    public function izFizzBuzz($number)
+    {
+        if (($number % 3 == 0) && ($number % 5 == 0)) {
             return "FizzBuzz";
-        } elseif ($number%3 == 0) {
+        } elseif ($number % 3 == 0) {
             return "Fizz";
-        } elseif ($number%5 == 0) {
+        } elseif ($number % 5 == 0) {
             return "Buzz";
         } else {
             return $number;
